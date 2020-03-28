@@ -18,3 +18,12 @@ describe('Game', () => {
     expect(board).to.deep.equal(initialGameBoard);
   })
 })
+
+it('Writes user\'s symbol in top left cell', () => {
+  const x = 0, y = 0;
+
+  game.acceptUserMove(x, y);
+  const board = game.getState();
+
+  expect(board[x][y]).to.equal('x');
+})

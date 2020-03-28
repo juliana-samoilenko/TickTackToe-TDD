@@ -6,4 +6,7 @@ export default class Game {
       ['', '', '']
     ]
   }
+  acceptUserMove(x, y) {
+    
+  }
 }
