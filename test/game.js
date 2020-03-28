@@ -35,9 +35,5 @@ it('Writes user\'s symbol in cell with given coordinates', () => {
   game.acceptUserMove(x, y);
   const board = game.getState();
 
-<<<<<<< HEAD
   expect(board[x][y]).to.equal(userMoveSymbol);
-=======
-  expect(board[x][y].to.equal(userMoveSymbol));
->>>>>>> 750bd37eb5af06db827c5f8ab45b7b7cc6b78ce3
 })
