@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import Game from '../src/Game';
 
+const userMoveSymbol = 'x';
 const initialGameBoard = [
   ['', '', ''],
   ['', '', ''],
@@ -9,7 +10,7 @@ const initialGameBoard = [
 
 let game;
 
-beforeEach(() => { game = new Game() })
+beforeEach(() => { game = new Game() });
 
 describe('Game', () => {
   it('Should return empty game board', () => {
@@ -25,5 +26,5 @@ it('Writes user\'s symbol in top left cell', () => {
   game.acceptUserMove(x, y);
   const board = game.getState();
 
-  expect(board[x][y]).to.equal('x');
+  expect(board[x][y]).to.equal(userMoveSymbol);
 })
