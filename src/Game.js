@@ -13,7 +13,7 @@ export default class Game {
   }
 
   acceptUserMove(x, y) {
-    this._updateBoard(0, 0);
+    this._updateBoard(x, y);
   }
 
   _updateBoard(x, y) {
