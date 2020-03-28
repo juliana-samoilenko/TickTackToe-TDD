@@ -16,6 +16,10 @@ describe('Game', () => {
 
 class Game {
   getState() {
-    return null;
+    return [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
+    ]
   }
 }
