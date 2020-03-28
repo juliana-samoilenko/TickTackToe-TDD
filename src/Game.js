@@ -13,6 +13,11 @@ export default class Game {
   }
 
   acceptUserMove(x, y) {
+    if (this._board[x][y]) {
+      throw new Error('cell is already taken');
+      return;
+    }
+
     this._updateBoard(x, y);
   }
 
