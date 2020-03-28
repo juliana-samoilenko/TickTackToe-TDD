@@ -1,25 +1,20 @@
 import {expect} from 'chai';
+import Game from '../src/Game';
+
+const initialGameBoard = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+]
+
+let game;
+
+beforeEach(() => { game = new Game() })
 
 describe('Game', () => {
   it('Should return empty game board', () => {
-    const game = new Game();
-
     const board = game.getState();
 
-    expect(board).to.deep.equal([
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', '']
-    ])
+    expect(board).to.deep.equal(initialGameBoard);
   })
 })
-
-class Game {
-  getState() {
-    return [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', '']
-    ]
-  }
-}
