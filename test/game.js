@@ -44,3 +44,12 @@ it('Computer moves in top left cell', () => {
 
   expect(board[0][0]).to.equal('o');
 })
+
+it('Game saves user\'s move in history', () => {
+  const x = 1, y = 1;
+
+  game.acceptUserMove(x, y);
+  const history = game.getMoveHistory();
+
+  expect(history).to.deep.equal([{turn: 'user', x, y}])
+})
