@@ -20,8 +20,8 @@ export default class Game {
     this._updateBoard(x, y);
   }
 
-  createCoputerMove() {
-    
+  createComputerMove() {
+    this._board[0][0] = 'o';
   }
 
   _updateBoard(x, y) {
