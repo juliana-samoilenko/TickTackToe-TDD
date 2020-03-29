@@ -13,9 +13,8 @@ export default class Game {
   }
 
   acceptUserMove(x, y) {
-    if (this._board[x][y]) {
-      throw new Error('cell is already taken');
-      return;
+    if (!this._isCellFree(x, y)) {
+      return  this._throwException('cell is already taken');
     }
 
     this._updateBoard(x, y);
@@ -23,5 +22,13 @@ export default class Game {
 
   _updateBoard(x, y) {
     this._board[x][y] = this._userMoveSymbol;
+  }
+
+  _isCellFree(x, y) {
+    return !this._board[x][y];
+  }
+
+  _throwException(msg) {
+    throw new Error(msg);
   }
 }
