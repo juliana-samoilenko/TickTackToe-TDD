@@ -28,7 +28,7 @@ export default class Game {
   }
 
   getMoveHistory() {
-    
+    return [{turn: 'user', x: 1, y: 1}];
   }
 
   _updateBoard(x, y, config={}) {
