@@ -1,6 +1,7 @@
 import {expect} from 'chai';
 import Game from '../src/Game';
 
+const userName = 'user';
 const userMoveSymbol = 'x';
 const initialGameBoard = [
   ['', '', ''],
@@ -51,5 +52,5 @@ it('Game saves user\'s move in history', () => {
   game.acceptUserMove(x, y);
   const history = game.getMoveHistory();
 
-  expect(history).to.deep.equal([{turn: 'user', x, y}])
+  expect(history).to.deep.equal([{turn: userName, x, y}])
 })
