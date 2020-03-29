@@ -20,6 +20,10 @@ export default class Game {
     this._updateBoard(x, y);
   }
 
+  createCoputerMove() {
+    
+  }
+
   _updateBoard(x, y) {
     this._board[x][y] = this._userMoveSymbol;
   }
