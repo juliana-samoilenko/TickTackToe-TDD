@@ -2,6 +2,7 @@ import {expect} from 'chai';
 import Game from '../src/Game';
 
 const userName = 'user';
+const computerName = 'computer';
 const userMoveSymbol = 'x';
 const initialGameBoard = [
   ['', '', ''],
@@ -59,5 +60,5 @@ it('Game saves computers\'s move in history', () => {
   game.createComputerMove();
   const history = game.getMoveHistory();
 
-  expect(history).to.deep.equal([{turn: 'computer', x: 0, y: 0}]);
+  expect(history).to.deep.equal([{turn: computerName, x: 0, y: 0}]);
 })
