@@ -4,6 +4,7 @@ export default class Game {
     this._computerName = 'computer';
     this._userMoveSymbol = 'x';
     this._computerMoveSymbol = 'o';
+    this._fieldSize = 3;
     this._history = [];
     this._board = [
       ['', '', ''],
@@ -26,8 +27,11 @@ export default class Game {
   }
 
   createComputerMove() {
-    this._updateHistory(this._computerName, 0, 0);
-    this._updateBoard(0, 0, {
+    const x = this._getRandomCoordinate();
+    const y = this._getRandomCoordinate();
+
+    this._updateHistory(this._computerName, x, y);
+    this._updateBoard(x, y, {
       symbol: this._computerMoveSymbol
     })
   }
@@ -51,5 +55,9 @@ export default class Game {
 
   _throwException(msg) {
     throw new Error(msg);
+  }
+
+  _getRandomCoordinate() {
+    return Math.floor(Math.random() * (this._fieldSize - 0));
   }
 }
