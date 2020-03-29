@@ -74,3 +74,16 @@ it('Game saves 1 user\'s move and 1 computer\'s move in history', () => {
   expect(history[0].turn).to.equal(userName);
   expect(history[1].turn).to.equal(computerName);
 })
+
+it('Computer moves in randomly chosen cell', () => {
+  const userMoveSymbol = 'x';
+  const computerMoveSymbol = 'o';
+
+  const stub = sinon.stub(Math, 'random').returns(0.5);
+
+  game.createComputerMove();
+  const board = game.getState();
+
+  expect(board[1][1]).to.equal(computerMoveSymbol);
+  stub.restore();
+})
