@@ -52,5 +52,12 @@ it('Game saves user\'s move in history', () => {
   game.acceptUserMove(x, y);
   const history = game.getMoveHistory();
 
-  expect(history).to.deep.equal([{turn: userName, x, y}])
+  expect(history).to.deep.equal([{turn: userName, x, y}]);
+})
+
+it('Game saves computers\'s move in history', () => {
+  game.createComputerMove();
+  const history = game.getMoveHistory();
+
+  expect(history).to.deep.equal([{turn: 'computer', x: 0, y: 0}]);
 })
