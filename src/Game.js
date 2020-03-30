@@ -42,19 +42,26 @@ export default class Game {
     return this._history;
   }
 
-  ifWinner(player) {
-    const symbol = player === this._userName
+  isWinner(player) {
+    const symbol = this._getSymbolForPlayer(player);
+    const range = [...Array(this._fieldSize).keys()];
+    const isEqual = this._checkCellEqual(symbol);
+
+    const horizontal = range.reduce((res, i) => 
+      isEqual(i, 0) && isEqual(i, 1) && isEqual(i, 2) || res, false);
+    
+    return horizontal;
+  }
+
+  _getSymbolForPlayer(player) {
+    return player === this._userName
       ? this._userMoveSymbol
       : this._computerMoveSymbol;
+  }
 
-    const win = [...Array(this._fieldSize).keys()].reduce((res, i) => {
-      return this._board[i][0] === symbol
-        && this._board[i][1] === symbol
-        && this._board[i][2] === symbol
-        || res
-    }, false);
-    
-    return win;
+  _checkCellEqual(symbol) {
+    return (i, j) => 
+      this._board[i][j] === symbol;
   }
 
   _updateHistory(turn, x, y) {
