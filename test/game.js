@@ -5,6 +5,7 @@ import Game from '../src/Game';
 const userName = 'user';
 const computerName = 'computer';
 const userMoveSymbol = 'x';
+const computerMoveSymbol = 'o';
 const initialGameBoard = [
   ['', '', ''],
   ['', '', ''],
@@ -18,7 +19,9 @@ beforeEach(() => { game = new Game() });
 const fillCells = game => {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (i !== 2 || j !== 2) game.acceptUserMove(i, j)
+      if (i !== 2 || j !== 2)  {
+        game.acceptUserMove(i, j);
+      }
     }
   }
 }
@@ -106,7 +109,7 @@ it('Computer moves in cell that is not taken', () => {
   game.createComputerMove();
   const board = game.getState();
 
-  expect(userCount).to.equal(8);
-  expect(computerCount).to.equal(1);
+  expect(count(board, userMoveSymbol)).to.equal(8);
+  expect(count(board, computerMoveSymbol)).to.equal(1);
   expect(board[2][2]).to.equal(computerMoveSymbol);
 })
