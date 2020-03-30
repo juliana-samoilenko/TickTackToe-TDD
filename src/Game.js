@@ -27,21 +27,10 @@ export default class Game {
   }
 
   createComputerMove() {
-    const freeCells = this._board.reduce((total, row) => 
-    row.reduce((count, el) =>
-    el === '' ? ++count : count, total), 0);
-    
-    if (!freeCells) {
-      return;
+    if (this._getFreeCellsCount() === 0) {
+      return false;
     }
-
-    let x = this._getRandomCoordinate();
-    let y = this._getRandomCoordinate();
-
-    while (!!this._board[x][y]) {
-      x = this._getRandomCoordinate();
-      y = this._getRandomCoordinate();
-    }
+    const [x, y] = this._getFreeRandomCoordinates();
 
     this._updateHistory(this._computerName, x, y);
     this._updateBoard(x, y, {
@@ -72,5 +61,23 @@ export default class Game {
 
   _getRandomCoordinate() {
     return Math.floor(Math.random() * (this._fieldSize - 0));
+  }
+
+  _getFreeRandomCoordinates() {
+    let x = this._getRandomCoordinate();
+    let y = this._getRandomCoordinate();
+
+    while (!!this._board[x][y]) {
+      x = this._getRandomCoordinate();
+      y = this._getRandomCoordinate();
+    }
+
+    return [x, y];
+  }
+
+  _getFreeCellsCount() {
+    return this._board.reduce((total, row) => 
+      row.reduce((count, el) => 
+      el === '' ? ++count : count, total), 0);
   }
 }
