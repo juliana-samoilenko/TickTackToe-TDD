@@ -113,3 +113,14 @@ it('Computer moves in cell that is not taken', () => {
   expect(count(board, computerMoveSymbol)).to.equal(1);
   expect(board[2][2]).to.equal(computerMoveSymbol);
 })
+
+it('If there are no free cells computer throws an exception', () => {
+  for (let i = 0; i < 3; ++i) {
+    for (let j = 0; j < 3; ++j) {
+      game.acceptUserMove(i, j);
+    }
+  }
+
+  const func = game.createComputerMove.bind(game);
+  expect(func).to.throw('no cells available');
+})
