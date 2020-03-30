@@ -43,7 +43,18 @@ export default class Game {
   }
 
   ifWinner(player) {
-    return false;
+    const symbol = player === this._userName
+      ? this._userMoveSymbol
+      : this._computerMoveSymbol;
+
+    const win = [...Array(this._fieldSize).keys()].reduce((res, i) => {
+      return this._board[i][0] === symbol
+        && this._board[i][1] === symbol
+        && this._board[i][2] === symbol
+        || res
+    }, false);
+    
+    return win;
   }
 
   _updateHistory(turn, x, y) {
