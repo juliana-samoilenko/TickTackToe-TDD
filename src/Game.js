@@ -42,6 +42,10 @@ export default class Game {
     return this._history;
   }
 
+  ifWinner(player) {
+    return false;
+  }
+
   _updateHistory(turn, x, y) {
     this._history.push({turn, x, y});
   }
