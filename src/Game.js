@@ -28,7 +28,7 @@ export default class Game {
 
   createComputerMove() {
     if (this._getFreeCellsCount() === 0) {
-      return false;
+      return this._throwException('no cells available');
     }
     const [x, y] = this._getFreeRandomCoordinates();
 

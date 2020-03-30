@@ -16,10 +16,11 @@ let game;
 
 beforeEach(() => { game = new Game() });
 
-const fillCells = game => {
+const fillCells = (game, config={}) => {
+  const { x = -1, y=-1 } = config;
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (i !== 2 || j !== 2)  {
+      if (i !== x || j !== y)  {
         game.acceptUserMove(i, j);
       }
     }
@@ -104,7 +105,7 @@ it('Computer moves in randomly chosen cell', () => {
 })
 
 it('Computer moves in cell that is not taken', () => {
-  fillCells(game);
+  fillCells(game, {x: 2, y:2});
 
   game.createComputerMove();
   const board = game.getState();
@@ -115,11 +116,7 @@ it('Computer moves in cell that is not taken', () => {
 })
 
 it('If there are no free cells computer throws an exception', () => {
-  for (let i = 0; i < 3; ++i) {
-    for (let j = 0; j < 3; ++j) {
-      game.acceptUserMove(i, j);
-    }
-  }
+  fillCells(game);
 
   const func = game.createComputerMove.bind(game);
   expect(func).to.throw('no cells available');
