@@ -38,6 +38,17 @@ class DomController {
 
   _makeUserMove(row, col) {
     this.game.acceptUserMove(row, col);
+
+    const board = this.game.getState();
+    const table = this.rootNode.querySelector('table');
+
+    board.forEach((row, i) => {
+      row.forEach((col, j) => {
+        table
+        .querySelector(`tr:nth-child(${i+1}) td:nth-child(${j+1})`)
+        .innerHTML = col;
+      })
+    })
   }
 }
 
