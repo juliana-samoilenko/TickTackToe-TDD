@@ -124,4 +124,20 @@ describe('DOM controller', () => {
     const status = document.querySelector('#status');
     expect(status.textContent).to.equal('user won!');
   })
+
+  it('Creates clear button if someone wins', () => {
+    const game = createGame([
+      ['×', '×', ''], 
+      ['', '', ''], 
+      ['', '', '']
+    ]);
+
+    const domController = createInstance(game);
+
+    domController.init();
+    document.querySelector('table tr:nth-child(1) td:nth-child(3)').click();
+
+    const button = document.querySelectorAll('button');
+    expect(button.length).to.equal(1);
+  })
 })
