@@ -30,6 +30,8 @@ class DomController {
     this.lastClickedIndices = [row, col];
     try {
       this._makeUserMove(row, col);
+
+      this._makeComputerMove();
     }
     catch(e) {
       window.alert(e.message);
@@ -38,6 +40,11 @@ class DomController {
 
   _makeUserMove(row, col) {
     this.game.acceptUserMove(row, col);
+    this._redraw();
+  }
+
+  _makeComputerMove() {
+    this.game.createComputerMove();
     this._redraw();
   }
 
