@@ -6,7 +6,7 @@ import {
   userMoveSymbol,
   computerMoveSymbol,
   initialGameBoard,
-} from './const'
+} from './const';
 
 export default class Game {
   constructor(board) {

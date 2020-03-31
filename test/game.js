@@ -3,15 +3,13 @@ import sinon from 'sinon';
 import Game from '../src/Game';
 import GameBuilder from './GameBuilder';
 
-const userName = 'user';
-const computerName = 'computer';
-const userMoveSymbol = 'x';
-const computerMoveSymbol = 'o';
-const initialGameBoard = [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', '']
-]
+import {
+  userName,
+  computerName,
+  userMoveSymbol,
+  computerMoveSymbol,
+  initialGameBoard,
+} from '../src/const';
 
 let game;
 
