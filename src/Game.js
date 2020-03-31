@@ -27,6 +27,11 @@ export default class Game {
     return this._fieldSize;
   }
 
+  clear() {
+    this._history = [];
+    this._board = cloneDeep(initialGameBoard);
+  }
+
   acceptUserMove(x, y) {
     if (!this._isCellFree(x, y)) {
       return  this._throwException('cell is already taken');
@@ -66,7 +71,7 @@ export default class Game {
     const diagonal = isEqual(0, 0) && isEqual(1, 1) && isEqual(2, 2)
       || isEqual(0, 2) && isEqual(1, 1) && isEqual(2, 0);
 
-    return horizontal || vertical || diagonal; 
+    return horizontal || vertical || diagonal || false; 
   }
 
   checkGame() {
