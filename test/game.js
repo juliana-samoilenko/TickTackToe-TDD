@@ -181,6 +181,18 @@ it('Checks if there is winner', () => {
   expect(state).to.equal(`${userName} won!`);
 })
 
+it('Checks if there are no winners', () => {
+  const game = new GameBuilder()
+    .withBoardState(`
+      . x x
+      . . .
+      . . .`)
+    .build();
+
+  const state = game.checkGame();
+  expect(state).to.equal(`continue`);
+})
+
 it('Returns game board size', () => {
   const size = game.getSize();
   
