@@ -3,10 +3,16 @@ import jsdom from 'jsdom';
 import DomController from '../src/DomController';
 import Game from '../src/Game';
 import { isMainThread } from 'worker_threads';
+import sinon from 'sinon';
 
 const {JSDOM} = jsdom;
 const dom = new JSDOM('<html><body id="root"></body></html>');
-const createInstance = () => new DomController('#root');
+const createInstance = (game = {}) => {
+  return new DomController({
+    game: game,
+    root: '#root'
+  })
+};
 
 global.window = dom.window;
 global.document = dom.window.document;
@@ -41,5 +47,15 @@ describe('DOM controller', () => {
     document.querySelector('table td').click();
 
     expect(domController.lastClickedIndices).to.deep.equal([0, 0]);
+  })
+
+  it('Makes user move in game on cell click', () => {
+    const gameMock = { acceptUserMove: sinon.spy() };
+    const domController = createInstance(gameMock);
+
+    domController.createTable(3, 3);
+    document.querySelector('table td').click();
+
+    expect(domController.game.acceptUserMove.called).to.be.true;
   })
 })
