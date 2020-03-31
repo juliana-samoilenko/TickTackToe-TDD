@@ -60,7 +60,9 @@ export default class Game {
     const horizontal = range.reduce((res, i) => 
       isEqual(i, 0) && isEqual(i, 1) && isEqual(i, 2) || res, false);
     
-    return horizontal;
+    const vertical = range.reduce((res, i) =>
+      isEqual(0, i) && isEqual(1, i) && isEqual(2, i) || res, false)
+    return horizontal || vertical;
   }
 
   checkGame() {
