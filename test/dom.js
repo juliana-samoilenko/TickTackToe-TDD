@@ -58,4 +58,15 @@ describe('DOM controller', () => {
 
     expect(domController.game.acceptUserMove.called).to.be.true;
   })
+
+  it('Checks initialization of table by game state', () => {
+    const game = createGame();
+    const domController = createInstance(game);
+
+    domController.init();
+
+    expect(document.querySelectorAll('table').length).to.equal(1);
+    expect(document.querySelectorAll('tr').length).to.equal(3);
+    expect(document.querySelectorAll('td').length).to.equal(9);
+  })
 })
