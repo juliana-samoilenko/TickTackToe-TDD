@@ -5,6 +5,11 @@ class DomController {
     this.lastClickedIndices = [-1, -1];
   }
 
+  init() {
+    const size = this.game.getSize();
+    this.createTable(size, size);
+  }
+
   createTable(rows = 0, cols = 0) {
     const child = document.createElement('table');
     this.rootNode.appendChild(child);

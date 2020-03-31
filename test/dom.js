@@ -7,6 +7,7 @@ import sinon from 'sinon';
 
 const {JSDOM} = jsdom;
 const dom = new JSDOM('<html><body id="root"></body></html>');
+const createGame = (board) => new Game(board);
 const createInstance = (game = {}) => {
   return new DomController({
     game: game,

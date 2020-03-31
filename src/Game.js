@@ -17,6 +17,10 @@ export default class Game {
     return this._board;
   }
 
+  getSize() {
+    return this._fieldSize;
+  }
+
   acceptUserMove(x, y) {
     if (!this._isCellFree(x, y)) {
       return  this._throwException('cell is already taken');
