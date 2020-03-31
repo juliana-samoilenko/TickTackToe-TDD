@@ -132,3 +132,9 @@ it('Checks if user won by horizontal', () => {
   const userWon = game.isWinner(userName);
   expect(userWon).to.equal(true);
 })
+
+it('Returns game board size', () => {
+  const size = game.getSize()
+  
+  expect(size).to.deep.equal(3)
+})
