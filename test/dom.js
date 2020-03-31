@@ -140,4 +140,20 @@ describe('DOM controller', () => {
     const button = document.querySelectorAll('button');
     expect(button.length).to.equal(1);
   })
+  it('Clears table on button click', () => {
+    const game = createGame([
+      ['x', 'x', ''], 
+      ['', '', ''], 
+      ['', '', '']
+    ])
+
+    const domController = createInstance(game)
+
+    domController.init()
+    document.querySelector('table tr:nth-child(1) td:nth-child(3)').click()
+    document.querySelector('button').click()
+
+    expect(document.querySelector('table').textContent).to.equal('')
+    expect(document.querySelectorAll('button').length).to.equal(0)
+  })
 })
