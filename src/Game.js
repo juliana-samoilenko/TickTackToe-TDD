@@ -1,8 +1,12 @@
 import cloneDeep from 'lodash/cloneDeep';
-const initialGameBoard = [
-  ['', '', ''],
-  ['', '', ''],
-  ['', '', '']];
+
+import {
+  userName,
+  computerName,
+  userMoveSymbol,
+  computerMoveSymbol,
+  initialGameBoard,
+} from './const'
 
 export default class Game {
   constructor(board) {
