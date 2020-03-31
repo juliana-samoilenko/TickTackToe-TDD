@@ -163,14 +163,26 @@ it('Checks if user has won by secondary diagonal', () => {
       . . x
       . x .
       x . .`)
-    .build()
+    .build();
 
-  const userWon = game.isWinner(userName)
-  expect(userWon).to.equal(true)
+  const userWon = game.isWinner(userName);
+  expect(userWon).to.equal(true);
+})
+
+it('Checks if there is winner', () => {
+  const game = new GameBuilder()
+    .withBoardState(`
+      x x x
+      . . .
+      . . .`)
+    .build();
+
+  const state = game.checkGame();
+  expect(state).to.equal(`${userName} won!`);
 })
 
 it('Returns game board size', () => {
-  const size = game.getSize()
+  const size = game.getSize();
   
-  expect(size).to.deep.equal(3)
+  expect(size).to.deep.equal(3);
 })
