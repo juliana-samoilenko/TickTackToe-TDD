@@ -1,16 +1,18 @@
+import cloneDeep from 'lodash/cloneDeep';
+const initialGameBoard = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']];
+
 export default class Game {
-  constructor() {
+  constructor(board) {
     this._userName = 'user';
     this._computerName = 'computer';
     this._userMoveSymbol = 'x';
     this._computerMoveSymbol = 'o';
     this._fieldSize = 3;
     this._history = [];
-    this._board = [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', '']
-    ]
+    this._board = board || cloneDeep(initialGameBoard);
   }
 
   getState() {
@@ -55,6 +57,13 @@ export default class Game {
       isEqual(i, 0) && isEqual(i, 1) && isEqual(i, 2) || res, false);
     
     return horizontal;
+  }
+
+  checkGame() {
+    if (this.isWinner(this._userName)) return `${this._userName} won!`
+    if (this.isWinner(this._computerName)) return `${this._computerName} won!`
+    if (this._getFreeCellsCount() === 0) return `nobody won :–(`
+    return 'continue'
   }
 
   _getSymbolForPlayer(player) {
