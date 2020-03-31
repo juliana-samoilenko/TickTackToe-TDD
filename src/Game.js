@@ -10,10 +10,10 @@ import {
 
 export default class Game {
   constructor(board) {
-    this._userName = 'user';
-    this._computerName = 'computer';
-    this._userMoveSymbol = 'x';
-    this._computerMoveSymbol = 'o';
+    this._userName = userName;
+    this._computerName = computerName;
+    this._userMoveSymbol = userMoveSymbol;
+    this._computerMoveSymbol = computerMoveSymbol;
     this._fieldSize = 3;
     this._history = [];
     this._board = board || cloneDeep(initialGameBoard);
