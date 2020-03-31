@@ -127,7 +127,7 @@ describe('DOM controller', () => {
 
   it('Creates clear button if someone wins', () => {
     const game = createGame([
-      ['×', '×', ''], 
+      ['x', 'x', ''], 
       ['', '', ''], 
       ['', '', '']
     ]);
