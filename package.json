@@ -4,7 +4,7 @@
   "description": "Tick Tack Toe JS",
   "main": "index.js",
   "scripts": {
-    "start": "http-server",
+    "start": "http-server ./dist",
     "test": "mocha --require babel-core/register",
     "build": "webpack"
   },
@@ -17,10 +17,12 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.2.0",
+    "css-loader": "^3.4.2",
     "html-webpack-plugin": "^4.0.3",
     "jsdom": "^16.2.1",
     "mocha": "^7.1.1",
     "sinon": "^9.0.1",
+    "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
