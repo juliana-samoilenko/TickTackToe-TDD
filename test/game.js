@@ -139,10 +139,10 @@ it('Checks if user has won by vertical', () => {
       x . .
       x . .
       x . .`)
-    .build()
+    .build();
 
-  const userWon = game.isWinner(USER_NAME)
-  expect(userWon).to.equal(true)
+  const userWon = game.isWinner(USER_NAME);
+  expect(userWon).to.equal(true);
 })
 
 it('Checks if user has won by main diagonal', () => {

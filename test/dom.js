@@ -109,7 +109,7 @@ describe('DOM controller', () => {
     expect(text.indexOf('o') > -1).to.be.true;
   })
 
-  it('Creates status text below table is comeone wins', () => {
+  it('Creates status text below table is someone wins', () => {
     const game = createGame([
       ['x', 'x', ''],
       ['', '', ''],
@@ -147,13 +147,13 @@ describe('DOM controller', () => {
       ['', '', '']
     ])
 
-    const domController = createInstance(game)
+    const domController = createInstance(game);
 
-    domController.init()
-    document.querySelector('table tr:nth-child(1) td:nth-child(3)').click()
-    document.querySelector('button').click()
+    domController.init();
+    document.querySelector('table tr:nth-child(1) td:nth-child(3)').click();
+    document.querySelector('button').click();
 
-    expect(document.querySelector('table').textContent).to.equal('')
-    expect(document.querySelectorAll('button').length).to.equal(0)
+    expect(document.querySelector('table').textContent).to.equal('');
+    expect(document.querySelectorAll('button').length).to.equal(0);
   })
 })

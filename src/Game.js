@@ -75,10 +75,10 @@ export default class Game {
   }
 
   checkGame() {
-    if (this.isWinner(this._userName)) return `${this._userName} won!`
-    if (this.isWinner(this._computerName)) return `${this._computerName} won!`
-    if (this._getFreeCellsCount() === 0) return `nobody won :–(`
-    return 'continue'
+    if (this.isWinner(this._userName)) return `${this._userName} won!`;
+    if (this.isWinner(this._computerName)) return `${this._computerName} won!`;
+    if (this._getFreeCellsCount() === 0) return `nobody won :–(`;
+    return 'continue';
   }
 
   _getSymbolForPlayer(player) {
