@@ -57,6 +57,10 @@ export default class Game {
     return this._history;
   }
 
+  getFreeCells() {
+    return INITIAL_GAME_BOARD;
+  }
+
   isWinner(player) {
     const symbol = this._getSymbolForPlayer(player);
     const range = [...Array(this._fieldSize).keys()];
