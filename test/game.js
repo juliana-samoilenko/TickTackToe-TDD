@@ -196,3 +196,8 @@ it('Returns game board size', () => {
   expect(size).to.deep.equal(3);
 })
 
+it('Check that all cells are free', () => {
+  const freeCells = game.getFreeCells();
+
+  expect(freeCells).to.deep.equal(INITIAL_GAME_BOARD);
+})
