@@ -91,9 +91,6 @@ it('Game saves 1 user\'s move and 1 computer\'s move in history', () => {
 })
 
 it('Computer moves in randomly chosen cell', () => {
-  const USER_MOVE_SYMBOL = 'x';
-  const COMPUTER_MOVE_SYMBOL = 'o';
-
   const stub = sinon.stub(Math, 'random').returns(0.5);
 
   game.createComputerMove();
@@ -198,3 +195,4 @@ it('Returns game board size', () => {
   
   expect(size).to.deep.equal(3);
 })
+
