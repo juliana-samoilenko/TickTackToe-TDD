@@ -1,10 +1,10 @@
-export const userName = 'user';
-export const computerName = 'computer';
+export const USER_NAME = 'user';
+export const COMPUTER_NAME = 'computer';
 
-export const userMoveSymbol = 'x';
-export const computerMoveSymbol = 'o';
+export const USER_MOVE_SYMBOL = 'x';
+export const COMPUTER_MOVE_SYMBOL = 'o';
 
-export const initialGameBoard = [
+export const INITIAL_GAME_BOARD = [
   ['', '', ''],
   ['', '', ''],
   ['', '', '']

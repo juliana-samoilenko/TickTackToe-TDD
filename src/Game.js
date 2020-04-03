@@ -1,22 +1,22 @@
 import cloneDeep from 'lodash/cloneDeep';
 
 import {
-  userName,
-  computerName,
-  userMoveSymbol,
-  computerMoveSymbol,
-  initialGameBoard,
+  USER_NAME,
+  COMPUTER_NAME,
+  USER_MOVE_SYMBOL,
+  COMPUTER_MOVE_SYMBOL,
+  INITIAL_GAME_BOARD,
 } from './const';
 
 export default class Game {
   constructor(board) {
-    this._userName = userName;
-    this._computerName = computerName;
-    this._userMoveSymbol = userMoveSymbol;
-    this._computerMoveSymbol = computerMoveSymbol;
+    this._userName = USER_NAME;
+    this._computerName = COMPUTER_NAME;
+    this._userMoveSymbol = USER_MOVE_SYMBOL;
+    this._computerMoveSymbol = COMPUTER_MOVE_SYMBOL;
     this._fieldSize = 3;
     this._history = [];
-    this._board = board || cloneDeep(initialGameBoard);
+    this._board = board || cloneDeep(INITIAL_GAME_BOARD);
   }
 
   getState() {
@@ -29,7 +29,7 @@ export default class Game {
 
   clear() {
     this._history = [];
-    this._board = cloneDeep(initialGameBoard);
+    this._board = cloneDeep(INITIAL_GAME_BOARD);
   }
 
   acceptUserMove(x, y) {
