@@ -1,5 +1,6 @@
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = [{
   name: 'client',
@@ -12,4 +13,18 @@ module.exports = [{
     filename: './js/bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: __dirname + "/index.html",
+      inject: 'body'
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader','css-loader'],
+      }
+    ]
+  }
 }]
